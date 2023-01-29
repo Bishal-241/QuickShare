@@ -1,0 +1,6 @@
+module{
+    'interpreter' : 'python_3.8.10',
+    'flask':'2.2.2',
+    'virtualenv': 'python3-virtualenv',
+    'db' : 'sqlite',
+}
