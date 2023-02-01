@@ -12,16 +12,28 @@
         alert("You have just landed to Quick sharing platform");
     }
 
-
-    cool()
-    </script>
-    <form action="/" method="POST">
+    function main() {
+        var document = `
+        <form action="/" method="POST">
         <label for="string">Enter message here:</label>
         <input type="text" name="message" id="message">
         <label for="pass">Password:</label>
         <input type="password" name="pass" id="pass">
         <button type="submit">Submit</button>
-    </form>
+        </form>
+        `
+    return document
+    }
+
+    function render(base){
+        document.write(base);
+    }
+
+    render(main())
+
+
+    </script>
+    
     
 </body>
 </html>
