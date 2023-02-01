@@ -34,7 +34,7 @@ def retriveData(id):
     conn.commit()                                                                      #COMMITING_ACTIONS
     conn.close() 
 
-    return list(respond)[1]   
+    return list(respond)[1]                                                            # RETURNS DATA FROM[ID,LITERAL,PASSWORD]
 
 
 def executeQuery(query):
@@ -68,12 +68,14 @@ def insertData(data , password):                                               #
 
 if __name__=="__main__":                                                            #CALLING_FROM_OUTSIDE_DOESNOTWORK_HERE
     # main()                                                                        #MAIN_LABORATORY
-    # print(retriveData(2)  )                                                       #GIVING_DATA_OF_SPECIFIC_ID
-    print(executeQuery('SELECT * FROM quickshare'))                               #GIVING_EXPEXTED_RESULT
-    for i in range(1,3):                                                         #CONTINIOUS DATA ENTRY
-        data = input(f"enter data[{i}]: ")
-        password = input(f'enter password[{i}]')
-        print(insertData(data,password))
+    print(retriveData(9)  )                                                       #GIVING_DATA_OF_SPECIFIC_ID
+    # print(executeQuery('SELECT * FROM quickshare'))                               #GIVING_EXPEXTED_RESULT
+    # insertData('I am a barbie girl','desney land')
+    # print(executeQuery('select * from quickshare'))
+    # for i in range(1,3):                                                         #CONTINIOUS DATA ENTRY
+    #     data = input(f"enter data[{i}]: ")
+    #     password = input(f'enter password[{i}]')
+    #     print(insertData(data,password))
 
 
 
