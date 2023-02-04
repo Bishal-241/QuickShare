@@ -25,16 +25,24 @@ def closeConnection(conn):
 '''
 
 
-def retriveData(id):
+def retriveData(id , pswd):
+    authenticated = False                                                              #DEFAULT_AUTHEN_STATE
     conn = sql.connect('data.db')                                                   
     cur = conn.cursor()   
 
     respond =  cur.execute(f'SELECT * FROM quickshare WHERE ID={id}').fetchone()
-   
+
     conn.commit()                                                                      #COMMITING_ACTIONS
     conn.close() 
 
-    return list(respond)[1]                                                            # RETURNS DATA FROM[ID,LITERAL,PASSWORD]
+    if(list(respond)[2] == pswd):
+        authenticated = True
+        return list(respond)[1]                                                            # RETURNS DATA FROM[ID,LITERAL,PASSWORD]
+    else:
+        return 'Authetication Error or recoed not available'
+
+    
+
 
 
 def executeQuery(query):
@@ -68,9 +76,9 @@ def insertData(data , password):                                               #
 
 if __name__=="__main__":                                                            #CALLING_FROM_OUTSIDE_DOESNOTWORK_HERE
     # main()                                                                        #MAIN_LABORATORY
-    print(retriveData(9)  )                                                       #GIVING_DATA_OF_SPECIFIC_ID
+    # print(retriveData(11,'kingofwadia')  )                                                       #GIVING_DATA_OF_SPECIFIC_ID
     # print(executeQuery('SELECT * FROM quickshare'))                               #GIVING_EXPEXTED_RESULT
-    # insertData('I am a barbie girl','desney land')
+    # print(insertData('Alladin movie . let us watch','kingofwadia'))
     # print(executeQuery('select * from quickshare'))
     # for i in range(1,3):                                                         #CONTINIOUS DATA ENTRY
     #     data = input(f"enter data[{i}]: ")
