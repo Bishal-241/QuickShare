@@ -14,18 +14,17 @@ def main():                                                                 #MAI
             return f'Your entered data : {rtn} ; try addr/id' 
         except:
             return "Error during internal execution"
-        # return "Good your work is done!"
     else:
         return render('index.html')
 
 
-@app.route("/<id>")
-def dPage(id):                                                               #PAGE_THAT_ALLOWS_AFTER_ENTRY_OPERATIONS
+@app.route("/<id>/<pswd>")
+def dPage(id,pswd):                                                               #PAGE_THAT_ALLOWS_AFTER_ENTRY_OPERATIONS
     data = {
         'text' : None
     }
     try : 
-        data['text'] = dOprator.retriveData(id)
+        data['text'] = dOprator.retriveData(id,pswd)
     except:
         data['text'] = "Internal Error occured"
     return f"Here is your data:<br>{data['text']}"
@@ -33,7 +32,7 @@ def dPage(id):                                                               #PA
 
 @app.route('/<text>')
 def test(text):
-    return f'entered text:{text}'
+    return f'Entered text:{text}'
 
 if(__name__ == "__main__"):
     app.run(debug=True, port=5000)
