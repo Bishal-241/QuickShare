@@ -85,5 +85,5 @@ if __name__=="__main__":                                                        
     #     password = input(f'enter password[{i}]')
     #     print(insertData(data,password))
 
-
+    pass
 
