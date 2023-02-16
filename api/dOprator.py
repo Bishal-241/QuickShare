@@ -13,7 +13,7 @@ def main():
     conn.commit()                                                                   #COMMITING_ACTIONS
     conn.close()                                                                    #CLOSING_CONNECTION
 
-
+    
 '''
 def makeConnection():
     conn = sql.connect('data.db')                                                   #CONNECTING_TO_DATABASE_FILE

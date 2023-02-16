@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['POST','GET'])
-def main():                                                                 #MAIN_ENTRANCE_PAGE
+def main():                                                                                 #MAIN_ENTRANCE_PAGE
     if request.method == 'POST':
         txt = request.form['message']
         password = request.form['pass']
         try:
-            rtn = dOprator.insertData(txt,password)                         #RETURN DATA ENTERED AND ID
-            return f'Your entered data : {rtn} ; try addr/id' 
+            rtn = dOprator.insertData(txt,password)                                         #RETURN DATA ENTERED AND ID
+            return f'Your entered data : {rtn} ; try <a href></a>' 
         except:
             return "Error during internal execution"
     else:
@@ -19,7 +19,7 @@ def main():                                                                 #MAI
 
 
 @app.route("/<id>/<pswd>")
-def dPage(id,pswd):                                                               #PAGE_THAT_ALLOWS_AFTER_ENTRY_OPERATIONS
+def dPage(id,pswd):                                                                         #PAGE_THAT_ALLOWS_AFTER_ENTRY_OPERATIONS
     data = {
         'text' : None
     }
@@ -28,7 +28,6 @@ def dPage(id,pswd):                                                             
     except:
         data['text'] = "Internal Error occured"
     return f"Here is your data:<br>{data['text']}"
-    pass
 
 @app.route('/<text>')
 def test(text):
