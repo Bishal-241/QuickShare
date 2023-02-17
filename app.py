@@ -9,6 +9,8 @@ def main():                                                                     
     if request.method == 'POST':
         txt = request.form['message']
         password = request.form['pass']
+        if(password == None):
+            password = ""                                                                   #HANDELING_NO_PASSWORD_CASE
         try:
             rtn = dOprator.insertData(txt,password)                                         #RETURN DATA ENTERED AND ID
             return f'Your entered data : {rtn} ; try <a href></a>' 
@@ -21,13 +23,18 @@ def main():                                                                     
 @app.route("/<id>/<pswd>")
 def dPage(id,pswd):                                                                         #PAGE_THAT_ALLOWS_AFTER_ENTRY_OPERATIONS
     data = {
-        'text' : None
+        'text' : None,
+        'id'    :id,
+        'password' : pswd,
     }
     try : 
-        data['text'] = dOprator.retriveData(id,pswd)
+        val = dOprator.retriveData(id,pswd)
     except:
         data['text'] = "Internal Error occured"
-    return f"Here is your data:<br>{data['text']}"
+    data['text'] = val
+    return render('dPage.html',txt = data['text'])
+        
+
 
 @app.route('/<text>')
 def test(text):

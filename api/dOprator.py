@@ -63,6 +63,8 @@ def insertData(data , password):                                               #
     conn = sql.connect('data.db')                                                   
     cur = conn.cursor()   
     id = list(cur.execute('select * from LOG').fetchone())[0] + 1 
+    if (password == ""):
+        password = 'default'
     respond =  cur.execute(f"insert into quickshare (ID , LITERAL , PASSWORD) values ({id},'{data}','{password}')")
 
     cur.execute(f'''UPDATE LOG
@@ -78,7 +80,9 @@ if __name__=="__main__":                                                        
     # main()                                                                        #MAIN_LABORATORY
     # print(retriveData(11,'kingofwadia')  )                                                       #GIVING_DATA_OF_SPECIFIC_ID
     # print(executeQuery('SELECT * FROM quickshare'))                               #GIVING_EXPEXTED_RESULT
-    # print(insertData('Alladin movie . let us watch','kingofwadia'))
+    print(insertData('Do u think the world is having Valentine week?',""))
+    # executeQuery('DELETE  from quickshare WHERE ID = 21')                               #GIVING_EXPEXTED_RESULT
+
     # print(executeQuery('select * from quickshare'))
     # for i in range(1,3):                                                         #CONTINIOUS DATA ENTRY
     #     data = input(f"enter data[{i}]: ")
