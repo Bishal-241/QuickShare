@@ -9,15 +9,22 @@ def main():                                                                     
     if request.method == 'POST':
         txt = request.form['message']
         password = request.form['pass']
+        
         if(password == None):
             password = ""                                                                   #HANDELING_NO_PASSWORD_CASE
         try:
             rtn = dOprator.insertData(txt,password)                                         #RETURN DATA ENTERED AND ID
-            return f'Your entered data : {rtn} ; try <a href></a>' 
+            dataEntry = True                                        
         except:
             return "Error during internal execution"
+
+        if dataEntry == True:                                                               #DATA_DICT_FOR_LOG_PAGE
+            data = {'txt' : rtn[1] , 'password' : rtn[2] }
+            data['id'] = rtn[0]
+
+            return render('log.html' , data = data)
     else:
-        return render('index.html')
+        return render('index.html')                                                         #RETURN_HOME_PAGE_FOR_NON_POST_REQ
 
 
 @app.route("/<id>/<pswd>")
