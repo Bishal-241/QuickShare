@@ -6,12 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    
+
+</style>
 </head>
 
-<body>
-    <div class="">Your Text : </div><br>
-    <div id="text">{{txt}}</div>
-
+<body class="bg-lime-300"> 
+   <section class="text-center  block align-center px-5 ">
+    <div class="">
+        <h2 class="font-semibold text-xl text-cyan-700 p-5">Your text</h2>
+    </div>
+    <div class="msg rounded px-3 bg-stone-50	"> {{txt}}</div>
+   </section>
 </body>
 
 </html>
