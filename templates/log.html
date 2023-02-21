@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log | QuickShare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .header{
+            font-size: 50px;
+            text-align: center;
+            align-self: center;
+            text-shadow: 10px;
+            color: rgb(99, 215, 215);
+            letter-spacing: 2px;
+            font-weight: 800;
+
+        }
+        body{
+            height: 100vh;
+        }
+        /* li{
+            background: #e4f7f2;
+            border-radius: 4px;
+          
+        }
+        li:hover{
+            color: rgb(255, 255, 255);
+        } */
+        .data{
+            border: 2px;
+            border-color: rgb(74, 74, 74);
+            padding: 2px;
+        }
+        p{
+            padding-top: 12rem;
+        }
+        a{
+            text-decoration: none;
+        }
+      
+    </style>
+</head>
+<body class="bg-lime-300  ">
+
+    <section class="header block text-center center pt-5 ">QUICK-SHARE </section>
+    <section class="block text-center center text-green-700  lg:pt-10 "> 
+        <span><ul > 
+            <li class="py-1.5"> Your ID : {{ data['id']}}</li>
+            <li class="py-1.5"> Your pass : {{data['password']}} </li>
+            <li class="py-1.5"> Click here access  data page <img src="https://icons8.com/icon/3O3yLvBwffDd/down-arrow" alt=""> </li>
+            <li class="py-4"> <button class="px-6 bg-green-400 hover:bg-green-600 rounded-full py-2 text-white font-semibold  text-xl "><a href="/{{data['id']}}/{{data['password']}}">click here</a></button> </li>
+
+        </ul></span>
+
+    </section>
+        <footer>
+            <p  class="text-md text-center center   text-cyan-400 "> Thanks for sharing your love with us</p>
+        </footer>
+    <!-- <div class="data flex text-center center">
+        <li>    Your ID : {{data['id']}} </li>
+        <li>     Your pass : {{data['password']}} </li>
+        <div></div>
+    </div>
+    Your ID : {{data['id']}}
+    Your pass : {{data['password']}}
+    Your txt : {{data['txt']}}
+    <a href="/{{data['id']}}/{{data['password']}}">Click Here</a> -->
+
+</body>
+
+</html>
